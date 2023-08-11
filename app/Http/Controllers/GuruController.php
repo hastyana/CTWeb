@@ -55,8 +55,8 @@ class GuruController extends Controller
             $data->save();
             // dd($data);
 
-            Session()->flash('alert-success', 'Data berhasil disimpan');
-            return redirect('/guru/konsep/konsep_add');
+            // Session()->flash('alert-success', 'Data berhasil disimpan');
+            return redirect('/guru/konsep/konsep_add')->with(['success' => 'Data berhasil disimpan']);
         } catch (\Exception $e) {
             Session()->flash('alert-danger', $e->getMessage());
             return redirect('/guru/konsep/konsep_add')->withInput();
@@ -95,7 +95,7 @@ class GuruController extends Controller
             'd'      => $request->d,
             'kunci'      => $request->kunci,
         ]);
-        return redirect('/guru/konsep')->with('alert-success', 'Data berhasil diubah dan disimpan');
+        return redirect('/guru/konsep')->with(['success' => 'Data Berhasil Diubah dan Disimpan']);
     }
     
     public function konsep_delete($id) {
@@ -137,8 +137,8 @@ class GuruController extends Controller
             $data->save();
             // dd($data);
 
-            Session()->flash('alert-success', 'Data berhasil disimpan');
-            return redirect('/guru/materi/materi_add');
+            // Session()->flash('alert-success', 'Data berhasil disimpan');
+            return redirect('/guru/materi/materi_add')->with(['success' => 'Data berhasil disimpan']);
         } catch (\Exception $e) {
             Session()->flash('alert-danger', $e->getMessage());
             return redirect('/guru/materi/materi_add')->withInput();
@@ -172,7 +172,7 @@ class GuruController extends Controller
             'materi'     => $request->materi,
             'isi'      => $request->isi,
         ]);
-        return redirect('/guru/materi')->with('alert-success', 'Data berhasil diubah dan disimpan');
+        return redirect('/guru/materi')->with(['success' => 'Data berhasil diubah dan disimpan']);
     }
     
     public function materi_delete($id) {

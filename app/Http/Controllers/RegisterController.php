@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'role' => 'siswa',
         ]);
         auth()->login($user);
-        Session()->flash('alert-success', 'Data berhasil disimpan');
-        return redirect('/register');
+        // Session()->flash('alert-success', 'Data berhasil disimpan');
+        return redirect('/')->with(['success' => 'Data berhasil diubah dan disimpan']);
     }
 }

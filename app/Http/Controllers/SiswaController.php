@@ -51,8 +51,8 @@ class SiswaController extends Controller
         ]);
 
         if ($insert->score == 'benar') {
-            Session()->flash('alert-success', 'Jawaban anda benar');
-            return redirect('/siswa/true');
+            // Session()->flash('alert-success', 'Jawaban anda benar');
+            return redirect('/siswa/true')->with(['success' => 'Data berhasil diubah dan disimpan']);
         }else{
             Session()->flash('alert-danger', "Jawaban anda salah!");
             return redirect('/siswa/false')->withInput();
